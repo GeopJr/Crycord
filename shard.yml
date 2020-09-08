@@ -1,0 +1,17 @@
+name: crycord
+version: 1.0.0
+
+authors:
+  - GeopJr <geopjr@geopjr.xyz>
+
+targets:
+  crycord:
+    main: src/crycord.cr
+
+dependencies:
+  asar-cr:
+    github: GeopJr/asar-cr
+
+crystal: 0.34.0
+
+license: MIT
