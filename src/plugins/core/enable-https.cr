@@ -10,9 +10,11 @@ module Crycord
       @@patch_1 = <<-STRING
         // Crycord
         require("electron").session.defaultSession.webRequest.onHeadersReceived(({ responseHeaders }, done) => {
-          Object.keys(responseHeaders)
-            .filter(k => (/^content-security-policy/i).test(k) || (/^x-frame-options/i).test(k))
-            .map(k => (delete responseHeaders[k]));
+          let csp = responseHeaders["content-security-policy"];
+          if (!csp) return done({cancel: false});
+          let header = csp[0].replace(/connect-src ([^;]+);/, "connect-src $1 https://*;");
+          header = header.replace(/style-src ([^;]+);/, "style-src $1 https://*;");
+          responseHeaders["content-security-policy"] = header;
           done({ responseHeaders });
         });
 
