@@ -148,7 +148,7 @@ module Crycord
         css_patch = @@patch_1.sub("<%- crycord_css %>", Path[css].expand(home: true).to_s)
         gen_patch_2 = @@patch_2.sub("<%- crycord_patch1 %>", css_patch)
 
-        gen_patch_4 = (mainScreen_content[0..range] + gen_patch_2 + mainScreen_content[range..-1]).sub("nodeIntegration: false", "nodeIntegration: true")
+        gen_patch_4 = (mainScreen_content[0..range] + gen_patch_2 + mainScreen_content[range..-1])
         File.write(mainScreen, gen_patch_4)
         true
       end
