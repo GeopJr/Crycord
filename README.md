@@ -129,3 +129,4 @@ Lastly, it can patch the flatpak version.
 
 - [GeopJr](https://github.com/GeopJr) - creator and maintainer
 - [leovoel](https://github.com/leovoel) - CSS injector
+- [Rapptz](https://github.com/Rapptz) - BeautifulDiscord Maintainer
