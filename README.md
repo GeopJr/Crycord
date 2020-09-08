@@ -63,7 +63,7 @@ Restart Discord to see the results!
 
 Crycord:
 ```
-$time ./crycord -c ~/Downloads/css.css
+$ time ./crycord -c ~/Downloads/css.css
 ...
 
 real	0m2,942s
@@ -85,7 +85,7 @@ sys	0m2,381s
 
 ![install](https://i.imgur.com/gf6Sa8i.gif)
 ![restore](https://i.imgur.com/1ooO8me.gif)
-![hotreload](https://i.imgur.com/q6nAvhT.gif)
+![hotreload](https://i.imgur.com/e102GRD.gif)
 
 ## WARNING
 
