@@ -101,7 +101,7 @@ my main goal is to achieve max speed and max compatibility. Using Crystal only t
 is one way to reach it. However, since I don't have access to a Mac and Windows doesn't have proper support, some
 paths (Discord config) are made specifically for linux.
 
-## How is it different than BeautifulDiscord?
+## How is it different to BeautifulDiscord?
 
 First of all, it's written, well... in Crystal!
 
