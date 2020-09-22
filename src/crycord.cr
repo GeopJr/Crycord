@@ -62,10 +62,10 @@ module Crycord
       should_revert = true
     end
     parser.on "-p", "--plugins", "Lists all available plugins" do
-      available_plugins = Crycord::PLUGINS.keys.map { |x| x = Crycord::PLUGINS[x].name + " | " + Crycord::PLUGINS[x].category + " | " + Crycord::PLUGINS[x].desc }.uniq
+      available_plugins = Crycord::PLUGINS.keys.reject! { |x| Crycord::PLUGINS[x].disabled }.map { |x| x = Crycord::PLUGINS[x].name + " | " + Crycord::PLUGINS[x].category + " | " + Crycord::PLUGINS[x].desc }.uniq
       puts "Available plugins:"
       puts "NAME | GROUP | DESCRIPTION"
-      puts available_plugins.reject! { |x| Crycord::PLUGINS[x].disabled }.join("\n")
+      puts available_plugins.join("\n")
       puts "Note: Disabled plugins are omitted"
       exit
     end
