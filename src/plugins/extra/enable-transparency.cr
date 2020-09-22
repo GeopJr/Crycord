@@ -3,7 +3,7 @@ require "json"
 
 # Disabled till mutter support (or I switch to kwin/compiz/whatever)
 module Crycord
-  plugin = Plugin.new("enable_transparency", "extra", "Enables glasscord support", false, true)
+  plugin = Plugin.new("enable_transparency", "extra", "Enables glasscord support", true)
   Crycord::PLUGINS[plugin.name] = plugin unless plugin.disabled
 
   module Plugins
@@ -34,8 +34,8 @@ module Crycord
       end
 
       # Path to extracted asar
-      def execute(path : Path, css : String | Nil) : Bool
-        app_path = path.parent
+      def execute : Bool
+        app_path = PATHS["asar"].parent
         app_dir = app_path.join("app")
         Dir.mkdir_p(app_dir.to_s)
         app = app_path.join("app.asar")

@@ -4,9 +4,10 @@ module Crycord
   # extract and pack require a significant amount of RAM
 
   # Asar to path
-  def extract(path : Path) : Path | Nil
-    output = path.parent.join("core").to_s
-    return if Dir.exists?(output)
+  def extract(path : Path) : Path
+    parent = path.parent.join("core")
+    output = parent.to_s
+    delete_unpacked(parent) if Dir.exists?(output)
     asar = Asar::Extract.new path.to_s
     asar.extract output
     Path[output]
