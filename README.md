@@ -59,6 +59,17 @@ Done!
 Restart Discord to see the results!
 ```
 
+## Plugins
+|         Name        | Group |         Description        | Maintainer |
+| :-----------------: | :---: | :------------------------: | :--------: |
+|     enable_https    |  core |        Disables CSP        |   GeopJr   |
+|      enable_css     |  core |    Enables css injection   |   GeopJr   |
+| unrestricted_resize | extra | Removes window size limits |   GeopJr   |
+
+To enable groups of plugins use `$ crycord -g core,extra -c /path/to/css`
+
+> Note: `core` is enabled by default so there's no need to include it.
+
 ## Benchmarks
 
 Crycord:
