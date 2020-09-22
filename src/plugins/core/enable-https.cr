@@ -21,9 +21,8 @@ module Crycord
 
     STRING
 
-      # Path to extracted asar
-      def execute(path : Path, css : String | Nil) : Bool
-        index_path = path.join("app", "index.js").to_s
+      def execute : Bool
+        index_path = PATHS["asar"].join("app", "index.js").to_s
         raise "index.js doesn't exist" unless File.exists?(index_path)
 
         index = File.read(index_path)

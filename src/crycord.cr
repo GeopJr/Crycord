@@ -10,6 +10,7 @@ module Crycord
   extend self
   @@plugins : Array(String)
   @@available_groups : Array(String)
+  PATHS = Hash(String, Path).new
 
   @@plugins = Crycord::PLUGINS.keys.reject! { |x| Crycord::PLUGINS[x].disabled }
   @@available_groups = @@plugins.map { |x| x = Crycord::PLUGINS[x].category }.uniq
@@ -53,7 +54,7 @@ module Crycord
       puts parser
       exit
     end
-    parser.on "-gs", "--groups", "Lists all available plugin groups" do
+    parser.on "-s", "--groups", "Lists all available plugin groups" do
       group_list
       exit
     end
@@ -135,19 +136,22 @@ module Crycord
     exit
   end
 
+  # Set paths
+  PATHS["asar"] = path
+  PATHS["css"] = Path[css_path]
+
   # See collector.cr
   modules = Crycord::Plugins.collected_modules
   selected_plugins = @@plugins.reject! { |x| !groups.includes?(Crycord::PLUGINS[x].category) }
 
   selected_plugins.each do |plugin|
     plugin_module = modules.find { |i| i.to_s == "Crycord::Plugins::#{plugin.upcase}" }
-    css = Crycord::PLUGINS[plugin].css ? css_path : nil
     puts "Installing #{plugin}..."
-    plugin_module.try &.execute(path, css)
+    plugin_module.try &.execute
   end
 
   puts "Packing core.asar..."
-  pack(Path[path])
+  pack(path)
   puts "Done!"
   puts "Restart Discord to see the results!"
 end

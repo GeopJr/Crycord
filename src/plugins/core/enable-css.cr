@@ -1,5 +1,5 @@
 module Crycord
-  plugin = Plugin.new("enable_css", "core", "Enables css injection", true)
+  plugin = Plugin.new("enable_css", "core", "Enables css injection")
   Crycord::PLUGINS[plugin.name] = plugin unless plugin.disabled
 
   module Plugins
@@ -129,10 +129,9 @@ module Crycord
 
     STRING
 
-      def execute(path : Path, css : String | Nil) : Bool
-        return false if css.nil?
-        mainScreen = path.join("app", "mainScreen.js").to_s
-        mainScreenPreload = path.join("app", "mainScreenPreload.js").to_s
+      def execute : Bool
+        mainScreen = PATHS["asar"].join("app", "mainScreen.js").to_s
+        mainScreenPreload = PATHS["asar"].join("app", "mainScreenPreload.js").to_s
 
         raise "mainScreen.js doesn't exist" unless File.exists?(mainScreen)
         raise "mainScreenPreload.js doesn't exist" unless File.exists?(mainScreenPreload)
@@ -145,7 +144,7 @@ module Crycord
         raise "mainScreen.js is missing important info" if index.nil?
 
         range = index == 0 ? 0 : index - 1
-        css_patch = @@patch_1.sub("<%- crycord_css %>", Path[css].expand(home: true).to_s)
+        css_patch = @@patch_1.sub("<%- crycord_css %>", PATHS["css"].expand(home: true).to_s)
         gen_patch_2 = @@patch_2.sub("<%- crycord_patch1 %>", css_patch)
 
         gen_patch_4 = (mainScreen_content[0..range] + gen_patch_2 + mainScreen_content[range..-1])

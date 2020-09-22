@@ -1,6 +1,6 @@
 # Collector from Granz (GeopJr/Granz-cr)
 module Crycord
-  record Plugin, name : String, category : String, desc : String, css : Bool? = false, disabled : Bool? = false
+  record Plugin, name : String, category : String, desc : String, disabled : Bool? = false
   PLUGINS = Hash(String, Plugin).new
 
   module Plugins
