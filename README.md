@@ -36,8 +36,9 @@ $ ./crycord -h
 <== [Crycord] ==>
     -v, --version                    Show version
     -h, --help                       Show help
-    -gs, --groups                    Lists all available plugin groups
-    -p, --plugins                    Lists all available plugins
+    -l, --list                       Lists all available plugin groups & plugins
+    -r, --revert                     Reverts back to original asar
+    -p PLUGINS, --plugins=PLUGINS    Selects the plugin(s) to install. Split multiple groups with commas(,).
     -c CSS_PATH, --css=CSS_PATH      Sets CSS location
     -f CORE_ASAR_PATH, --force=CORE_ASAR_PATH
                                      Forces an asar path
