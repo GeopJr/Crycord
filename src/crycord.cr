@@ -1,5 +1,7 @@
 require "option_parser"
 require "asar-cr"
+require "colorize"
+
 require "./version.cr"
 require "./functions/*"
 require "./locators/*"
@@ -24,21 +26,22 @@ module Crycord
     if path.nil?
       path = linux
     else
-      puts "Flatpak Detected:"
-      puts "Make sure it has access to your CSS file"
-      puts "Usually ~/Downloads is accessible"
+      STDOUT.puts "Flatpak Detected:".colorize(:yellow)
+      STDOUT.puts "Make sure it has access to your CSS file".colorize(:yellow)
+      STDOUT.puts "Usually ~/Downloads/ is accessible".colorize(:yellow)
     end
     if path.nil?
-      puts "ERROR: couldn't find core.asar, try manually setting it using the -f flag."
-      exit
+      STDERR.puts "ERROR: couldn't find core.asar, try manually setting it using the -f flag.".colorize(:red)
+      exit(1)
     end
     return path.to_s
   end
 
   def group_list
-    puts "Available plugin groups:"
-    puts @@available_groups.join("\n")
-    puts "Note: core is being installed by default"
+    STDOUT.puts "Available plugin groups:"
+    STDOUT.puts @@available_groups.join("\n")
+    STDOUT.puts "Note: core is being installed by default".colorize(:yellow)
+    exit(1)
   end
 
   # CLI options
@@ -46,13 +49,14 @@ module Crycord
     parser.banner = "<== [Crycord] ==>"
 
     parser.on "-v", "--version", "Show version" do
-      puts "Crycord"
-      puts "Version: #{VERSION}"
-      exit
+      STDOUT.puts "Crycord".colorize(:magenta)
+      STDOUT.puts "Made by: GeopJr".colorize(:cyan)
+      STDOUT.puts "Version: #{VERSION}".colorize(:yellow)
+      exit(1)
     end
     parser.on "-h", "--help", "Show help" do
-      puts parser
-      exit
+      STDOUT.puts parser
+      exit(1)
     end
     parser.on "-s", "--groups", "Lists all available plugin groups" do
       group_list
@@ -72,16 +76,16 @@ module Crycord
     parser.on "-c CSS_PATH", "--css=CSS_PATH", "Sets CSS location" do |path|
       css = Path[path].expand(home: true)
       unless File.exists?(css)
-        puts "ERROR: CSS file not found"
-        exit
+        STDERR.puts "ERROR: CSS file not found".colorize(:red)
+        exit(1)
       end
       css_path = css.to_s
     end
     parser.on "-f CORE_ASAR_PATH", "--force=CORE_ASAR_PATH", "Forces an asar path" do |path|
       asar_path = Path[path].expand(home: true).to_s
       unless File.exists?(asar_path)
-        puts "ERROR: core.asar not found"
-        exit
+        STDERR.puts "ERROR: core.asar not found".colorize(:red)
+        exit(1)
       end
     end
     parser.on "-g PLUGIN_GROUP", "--group=PLUGIN_GROUP", "Selects the plugin group(s) to install. Split multiple groups with commas(,)." do |input|
@@ -92,20 +96,21 @@ module Crycord
       groups.uniq!
       groups.each do |item|
         unless @@available_groups.includes?(item)
-          puts "ERROR: unknown group, use the -gs flag to list all groups."
-          exit
+          STDOUT.puts "ERROR: unknown group #{item}, use the -l flag to list all groups.".colorize(:red)
+          exit(1)
         end
       end
     end
 
     parser.missing_option do |option_flag|
-      STDERR.puts "ERROR: #{option_flag} is missing something."
+      STDERR.puts "ERROR: #{option_flag} is missing something.".colorize(:red)
       STDERR.puts ""
       STDERR.puts parser
       exit(1)
     end
     parser.invalid_option do |option_flag|
-      STDERR.puts "ERROR: #{option_flag} is not a valid option."
+      STDERR.puts "ERROR: #{option_flag} is not a valid option.".colorize(:red)
+      STDERR.puts ""
       STDERR.puts parser
       exit(1)
     end
@@ -115,25 +120,29 @@ module Crycord
   if should_revert
     asar_path = get_paths if asar_path == ""
     res = revert(Path[asar_path])
-    puts "Restore was #{res.nil? ? "un" : ""}successful"
-    exit
+    if res.nil?
+      STDERR.puts "Restore was unsuccessful".colorize(:red)
+    else
+      STDOUT.puts "Restore was successful".colorize(:green)
+    end
+    exit(1)
   end
 
   # Check options
   if css_path == ""
-    puts "ERROR: -c option is missing"
-    exit
+    STDERR.puts "ERROR: -c option is missing".colorize(:red)
+    exit(1)
   end
 
   # Check discord and get paths
   asar_path = get_paths if asar_path == ""
 
   # Extract asar
-  puts "Extracting core.asar..."
+  STDOUT.puts "Extracting core.asar...".colorize(:yellow)
   path = extract(Path[asar_path])
   if path.nil?
-    puts "ERROR: couldn't extract core.asar"
-    exit
+    STDERR.puts "ERROR: couldn't extract core.asar".colorize(:red)
+    exit(1)
   end
 
   # Set paths
@@ -146,12 +155,12 @@ module Crycord
 
   selected_plugins.each do |plugin|
     plugin_module = modules.find { |i| i.to_s == "Crycord::Plugins::#{plugin.upcase}" }
-    puts "Installing #{plugin}..."
+    STDOUT.puts "Installing #{plugin}...".colorize(:yellow)
     plugin_module.try &.execute
   end
 
-  puts "Packing core.asar..."
+  STDOUT.puts "Packing core.asar...".colorize(:yellow)
   pack(path)
-  puts "Done!"
-  puts "Restart Discord to see the results!"
+  STDOUT.puts "Done!".colorize(:green)
+  STDOUT.puts "Restart Discord to see the results!".colorize(:yellow)
 end
