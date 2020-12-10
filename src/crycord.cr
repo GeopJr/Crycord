@@ -45,15 +45,16 @@ module Crycord
     exit(1)
   end
 
-  def plugin_list 
+  def plugin_list
     available_plugins = Crycord::PLUGINS.keys.reject! { |x| Crycord::PLUGINS[x].disabled }.map { |x| x = Crycord::PLUGINS[x].name + " | " + Crycord::PLUGINS[x].category + " | " + Crycord::PLUGINS[x].desc }.uniq
-      STDOUT.puts "Available plugins:"
-      STDOUT.puts "NAME | GROUP | DESCRIPTION"
-      STDOUT.puts available_plugins.join("\n")
-      STDOUT.puts "Note: Disabled plugins are omitted".colorize(:yellow)
-      STDOUT.puts "Note: core is being installed by default".colorize(:yellow)
-      exit(1)
+    STDOUT.puts "Available plugins:"
+    STDOUT.puts "NAME | GROUP | DESCRIPTION"
+    STDOUT.puts available_plugins.join("\n")
+    STDOUT.puts "Note: Disabled plugins are omitted".colorize(:yellow)
+    STDOUT.puts "Note: core is being installed by default".colorize(:yellow)
+    exit(1)
   end
+
   # CLI options
   OptionParser.parse do |parser|
     parser.banner = "<== [Crycord] ==>"
