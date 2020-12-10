@@ -1,3 +1,5 @@
+require "yaml"
+
 module Crycord
-  VERSION = "1.2.0"
+  VERSION = YAML.parse(::File.read("./shard.yml"))["version"]
 end
