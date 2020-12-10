@@ -36,16 +36,16 @@ module Crycord
       # Path to extracted asar
       def execute : Bool
         app_path = PATHS["asar"].parent
-        app_dir = app_path.join("app")
+        app_dir = app_path.join("core")
         Dir.mkdir_p(app_dir.to_s)
-        app = app_path.join("app.asar")
+        app = app_path.join("core.asar")
         asar = Asar::Extract.new app.to_s
         content = asar.get("/package.json")
         raise "package.json doesn't exist" if content.nil?
         packagejson = content.gets_to_end
-        puts "Downloading Glasscord..."
+        STDOUT.puts "Downloading Glasscord...".colorize(:yellow)
         glasscord_location = download(app_path)
-        puts "Installing Glasscord..."
+        STDOUT.puts "Installing Glasscord...".colorize(:yellow)
         File.rename(glasscord_location.to_s, app_dir.join("glasscord.asar").to_s)
         File.write(app_dir.join("package.json"), packagejson.sub("app_bootstrap/index.js", "./glasscord.asar"))
         true
