@@ -12,7 +12,7 @@ module Crycord
 
       private def latest_artifact(version : String | Nil = "latest") : String
         latest_glasscord = "v0.9999.9999"
-        url = "https://github.com/AryToNeX/Glasscord/releases/download/#{latest_glasscord}/glasscord.asar"
+        url = "https://github.com/AryToNeX/Glasscord/releases/download/#{version}/glasscord.asar"
         if version == "latest"
           response = HTTP::Client.get "https://api.github.com/repos/AryToNeX/Glasscord/releases/latest"
           latest_artifact(latest_glasscord) unless response.status_code == 200 | response.status_code == 304
