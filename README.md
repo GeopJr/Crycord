@@ -60,6 +60,10 @@ Done!
 Restart Discord to see the results!
 ```
 
+## GUI
+
+There's a GTK GUI for Crycord on [Crycord-GUI](https://github.com/GeopJr/Crycord-GUI)
+
 ## Plugins
 |         Name        | Group |         Description        | Maintainer |
 | :-----------------: | :---: | :------------------------: | :--------: |
