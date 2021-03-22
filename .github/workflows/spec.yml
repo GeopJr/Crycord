@@ -6,7 +6,9 @@ jobs:
     runs-on: ubuntu-16.04
     steps:
       - uses: actions/checkout@v2
-      - uses: MeilCli/setup-crystal-action@v4.0.1
+      - uses: MeilCli/setup-crystal-action@v4.1.1
+        with: 
+          crystal_version: 1.0.0
       - name: Shards install
         run: shards install
       - name: Spec

@@ -12,6 +12,6 @@ dependencies:
   asar-cr:
     github: GeopJr/asar-cr
 
-crystal: 0.35.1
+crystal: 1.0.0
 
 license: MIT
