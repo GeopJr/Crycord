@@ -2,7 +2,7 @@ name: crycord
 version: 1.3.1
 
 authors:
-  - GeopJr <geopjr@geopjr.xyz>
+  - GeopJr <evan@geopjr.dev>
 
 targets:
   crycord:
