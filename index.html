@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/css.css" />
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <!-- META -->
+    <title>Crycord</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A Discord Client modification with plugins"
+    />
+    <meta name="theme-color" content="#000000" />
+    <!-- APPLE -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="Crycord" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://i.imgur.com/KAkcPSz.png"
+    />
+    <!-- FAVICONS -->
+    <link
+      rel="icon"
+      sizes="32x32"
+      href="https://i.imgur.com/KAkcPSz.png"
+      type="image/png"
+    />
+    <!-- OG -->
+    <meta
+      property="og:description"
+      content="A Discord Client modification with plugins"
+    />
+    <meta name="og:site_name" content="GeopJR#4066" />
+    <meta property="og:title" content="Crycord" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://crycord.geopjr.dev/" />
+    <meta name="og:image" content="https://i.imgur.com/KAkcPSz.png" />
+    <meta property="og:image:type" content="image/png" />
+  </head>
+
+  <body>
+    <div class="container">
+      <img class="avi" alt="" src="./assets/images/crycord.png" />
+      <h1 class="title">Crycord</h1>
+      <h3>A Discord Client modification with plugins</h3>
+      <div class="actions">
+        <a class="button" href="https://github.com/GeopJr/Crycord/">GitHub</a>
+        <a class="button" href="#info">Info</a>
+        <a
+          class="button"
+          href="https://github.com/GeopJr/Crycord/releases/latest"
+          >Releases</a
+        >
+      </div>
+    </div>
+    <div class="infoview">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 300">
+        <path
+          fill="#000000"
+          fill-opacity="1"
+          d="M0,256L48,229.3C96,203,192,149,288,154.7C384,160,480,224,576,218.7C672,213,768,139,864,128C960,117,1056,171,1152,197.3C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+        ></path>
+      </svg>
+      <div id="info" class="underwater">
+        <div class="container">
+          <h1>Install</h1>
+          <h3>
+            You can either
+            <a href="https://github.com/GeopJr/Crycord/releases/latest"
+              >download the latest release</a
+            >
+          </h3>
+          <h3>
+            Or
+            <a href="https://github.com/GeopJr/Crycord/#building"
+              >build it yourself</a
+            >
+          </h3>
+          <h1>Usage</h1>
+          <p class="flow-text code">
+            $ ./crycord -c ./Downloads/css.css<br /><br />
+            Flatpak Detected:<br />
+            Make sure it has access to your CSS file<br />
+            Usually ~/Downloads is accessible<br />
+            Extracting core.asar...<br />
+            Installing enable_css...<br />
+            Installing enable_https...<br />
+            Packing core.asar...<br />
+            Done!<br />
+            Restart Discord to see the results!
+          </p>
+          <h1>Plugins</h1>
+          <table class="center-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Group</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>enable_https</td>
+                <td>core</td>
+                <td>Disables CSP</td>
+              </tr>
+              <tr>
+                <td>enable_css</td>
+                <td>core</td>
+                <td>Enables css injection</td>
+              </tr>
+              <tr>
+                <td>unrestricted_resize</td>
+                <td>extra</td>
+                <td>Removes window size limits</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <footer class="feet">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 300">
+          <path
+            fill="#ffffff"
+            fill-opacity="1"
+            d="M0,160L30,160C60,160,120,160,180,149.3C240,139,300,117,360,101.3C420,85,480,75,540,96C600,117,660,171,720,197.3C780,224,840,224,900,197.3C960,171,1020,117,1080,106.7C1140,96,1200,128,1260,165.3C1320,203,1380,245,1410,266.7L1440,288L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"
+          ></path>
+        </svg>
+        <div class="footer-content">
+          Made by <a href="https://geopjr.dev/">GeopJr</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

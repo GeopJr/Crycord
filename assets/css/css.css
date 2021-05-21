@@ -1,0 +1,126 @@
+html,
+body {
+  background-color: white;
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 70vh;
+  min-height: 100%;
+}
+
+.avi {
+  max-width: 256px;
+  width: 50vw;
+  margin: 0 auto;
+}
+
+.title {
+  margin: 25px 0;
+}
+
+.actions {
+  margin-top: 25px;
+}
+
+.actions > .button {
+  padding: 1rem;
+  background-color: white;
+  border: 3px solid black;
+  color: black;
+  transition-duration: 250ms;
+}
+
+.actions > .button:hover {
+  transition-duration: 250ms;
+  background-color: black;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #7f77bc;
+}
+
+.underwater {
+  background-color: black;
+  color: white;
+}
+
+.underwater > .container {
+  margin: 0 15px;
+  height: 100%;
+}
+
+.underwater > .container > h1 {
+  margin: 1rem 0;
+}
+
+.infoview {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.code {
+  background-color: white;
+  color: black;
+  text-align: left;
+  max-width: 70vw;
+  border-radius: 5%;
+  padding: 5px;
+  display: block;
+  margin: 0 auto;
+}
+
+.center-table {
+  z-index: 50;
+  margin: 0 auto;
+}
+
+th {
+  background-color: white;
+  border-color: black;
+  color: black;
+  text-align: center;
+  padding: 1rem;
+}
+
+td {
+  border: 1px solid #fff;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+  th {
+    padding: 0;
+  }
+
+  td {
+    padding: 0;
+  }
+}
+
+.feet {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.footer-content {
+  background-color: white;
+  color: black;
+  text-align: center;
+  font-size: larger;
+}

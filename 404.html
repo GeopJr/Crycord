@@ -1,0 +1,80 @@
+<!DOCTYPE html5>
+<!--
+Original: https://codepen.io/conmarap/pen/mVMvVv
+Colors: https://github.com/dracula/dracula-theme
+-->
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Page Not Found 😭</title>
+
+<style>
+  body {
+    background: #282a36;
+    color: #d3d7de;
+    font-family: "Courier new";
+    font-size: 18px;
+    line-height: 1.5em;
+  cursor: default;
+}
+
+a {
+  color: #fff;
+}
+
+.code-area {
+    position: absolute;
+    width: 320px;
+  min-width: 320px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.code-area > span {
+    display: block;
+}
+
+@media screen and (max-width: 320px) {
+    .code-area {
+    font-size: 5vw;
+    min-width: auto;
+        width: 95%;
+    margin: auto;
+    padding: 5px;
+    padding-left: 10px;
+    line-height: 6.5vw;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="code-area">
+  <span style="color: #6272a4;font-style:italic;">
+    // 404 page not found.
+  </span>
+  <span>
+    <span style="color:#ff79c6;">
+      if
+    </span>
+	  (<span style="color:#ff79c6;">!</span><span style="font-style: italic;color:#bdbdbd;">found</span>)
+    {
+  </span>
+  <span>
+    <span style="padding-left: 15px;color:#ff79c6">
+       <i style="width: 10px;display:inline-block"></i>throw
+    </span>
+    <span>
+      (<span style="color: #f1fa8c">"(╯°□°)╯︵ ┻━┻"</span>);
+    </span>
+	  <span style="display:block">}</span>
+	  <span style="color: #6272a4;font-style:italic;">
+		  // <a href="/" style="color:#8be9fd">Go home!</a>
+	  </span>
+  </span>
+</div>
+
+</body>
+</html>
