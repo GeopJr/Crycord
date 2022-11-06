@@ -3,12 +3,6 @@
   <p>
     <img src="https://i.imgur.com/eS2ugrZ.png"/>
   </p>
-  <br />
-  <p>
-    <a href="https://ko-fi.com/GeopJr" title="Donate to this project using Ko-Fi"><img src="https://img.shields.io/badge/Buy%20me%20a-KoFi-white.svg" alt="Ko-Fi donate button" /></a>
-    <a href="https://liberapay.com/GeopJr"><img src="https://img.shields.io/liberapay/patrons/GeopJr.svg?logo=liberapay" alt="liberapay" ></a>
-    <a href="https://github.com/GeopJr/Crycord/blob/master/LICENSE"><img src="https://img.shields.io/badge/LICENSE-MIT-000000.svg" alt="MIT" /></a>
-  </p>
 </div>
 
 # crycord
