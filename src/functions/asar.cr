@@ -1,8 +1,6 @@
 require "file_utils"
 
 module Crycord
-  # extract and pack require a significant amount of RAM
-
   # Asar to path
   def extract(path : Path) : Path
     parent = path.parent.join("core")

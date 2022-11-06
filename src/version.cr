@@ -1,5 +1,3 @@
-require "yaml"
-
 module Crycord
-  VERSION = {{ `shards version #{__DIR__}`.chomp.stringify }}
+  VERSION = {{read_file("#{__DIR__}/../shard.yml").split("version: ")[1].split("\n")[0]}}
 end

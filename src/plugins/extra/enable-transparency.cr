@@ -1,7 +1,6 @@
 require "http/client"
 require "json"
 
-# Disabled till mutter support (or I switch to kwin/compiz/whatever)
 module Crycord
   plugin = Plugin.new("enable_transparency", "extra", "Enables glasscord support", true)
   Crycord::PLUGINS[plugin.name] = plugin unless plugin.disabled

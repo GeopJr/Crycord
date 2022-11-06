@@ -31,9 +31,16 @@ You can download the *statically* linked build from the releases page!
 ## Usage
 
 ```
-$ ./crycord -h
+$ crycord -h
 
-<== [Crycord] ==>
+Crycord v1.3.2
+Usage:
+    crycord [arguments]
+    
+Examples:
+    crycord -c ./Downloads/style.css
+
+Arguments:
     -v, --version                    Show version
     -h, --help                       Show help
     -l, --list                       Lists all available plugin groups & plugins
@@ -47,7 +54,7 @@ $ ./crycord -h
 ```
 
 ```
-$ ./crycord -c ./Downloads/css.css
+$ crycord -c ./Downloads/style.css
 
 Flatpak Detected:
 Make sure it has access to your CSS file
@@ -70,6 +77,7 @@ There's a GTK GUI for Crycord on [Crycord-GUI](https://github.com/GeopJr/Crycord
 |     enable_https    |  core |        Disables CSP        |   GeopJr   |
 |      enable_css     |  core |    Enables css injection   |   GeopJr   |
 | unrestricted_resize | extra | Removes window size limits |   GeopJr   |
+| enable_web_tools | extra | Enables web tools on Discord stable |   GeopJr   |
 
 To enable groups of plugins use `$ crycord -g core,extra -c /path/to/css`
 
@@ -79,7 +87,7 @@ To enable groups of plugins use `$ crycord -g core,extra -c /path/to/css`
 
 Crycord:
 ```
-$ time ./crycord -c ~/Downloads/css.css
+$ time crycord -c ~/Downloads/style.css
 ...
 
 real	0m2,942s
@@ -89,7 +97,7 @@ sys	0m0,462s
 
 BeautifulDiscord:
 ```
-$ time python3 -m beautifuldiscord --css ~/Downloads/css.css
+$ time python3 -m beautifuldiscord --css ~/Downloads/style.css
 ...
 
 real	0m4,593s
@@ -110,39 +118,19 @@ sys	0m2,381s
 - Using a client mod such as this (and all others), deactivates many electron security functions.
 - If a Discord Staff happens to stumble upon this, I don't use this tool on my account and it's made for educational purposes.
 
-## Goals
+## Sponsors
 
-As I also wrote the shard that manages the asar pack/extract (these 2 functions at least),
-my main goal is to achieve max speed and max compatibility. Using Crystal only tools like Path, File, Dir etc.
-is one way to reach it. However, since I don't have access to a Mac and Windows doesn't have proper support, some
-paths (Discord config) are made specifically for linux.
+<div align="center">
 
-## How is it different to BeautifulDiscord?
+[![GeopJr Sponsors](https://cdn.jsdelivr.net/gh/GeopJr/GeopJr@main/sponsors.svg)](https://github.com/sponsors/GeopJr)
 
-First of all, it's written, well... in Crystal!
-
-That alone makes it a lot faster!
-
-Crycord also has a plugin(?) system!
-
-Lastly, it can patch the flatpak version.
-
-## TODO
-
-- Use a cross-platform way to find Discord's pid
-- Clean the module collector
-- GitHub action using docker in an attempt to build static builds automatically
+</div>
 
 ## Contributing
 
-1. Fork it (<https://github.com/your-github-user/crycord/fork>)
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
-
-## Contributors
-
-- [GeopJr](https://github.com/GeopJr) - creator and maintainer
-- [leovoel](https://github.com/leovoel) - CSS injector
-- [Rapptz](https://github.com/Rapptz) - BeautifulDiscord Maintainer
+1. Read the [Code of Conduct](https://github.com/GeopJr/Collision/blob/main/CODE_OF_CONDUCT.md)
+2. Fork it (<https://github.com/GeopJr/crycord/fork>)
+3. Create your feature branch (`git checkout -b my-new-feature`)
+4. Commit your changes (`git commit -am 'Add some feature'`)
+5. Push to the branch (`git push origin my-new-feature`)
+6. Create a new Pull Request

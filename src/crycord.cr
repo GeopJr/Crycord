@@ -57,11 +57,19 @@ module Crycord
 
   # CLI options
   OptionParser.parse do |parser|
-    parser.banner = "<== [Crycord] ==>"
+    parser.banner = <<-BANNER
+    #{"Crycord".colorize(:blue).bold} v#{VERSION}
+    #{"Usage:".colorize(:light_blue)}
+        crycord [arguments]
+
+    #{"Examples:".colorize(:light_blue)}
+        crycord -c ./Downloads/style.css
+    
+    #{"Arguments:".colorize(:light_blue)}
+    BANNER
 
     parser.on "-v", "--version", "Show version" do
       STDOUT.puts "Crycord".colorize(:magenta)
-      STDOUT.puts "Made by: GeopJr".colorize(:cyan)
       STDOUT.puts "Version: #{VERSION}".colorize(:yellow)
       exit(1)
     end
@@ -75,7 +83,7 @@ module Crycord
     parser.on "-r", "--revert", "Reverts back to original asar" do
       should_revert = true
     end
-    parser.on "-p PLUGINS", "--plugins=PLUGINS", "Selects the plugin(s) to install. Split multiple groups with commas(,)." do |input|
+    parser.on "-p PLUGINS", "--plugins=PLUGINS", "Selects the plugin(s) to install. Split multiple plugins with commas(,)." do |input|
       if input == "" || input.nil?
         plugin_list
       end

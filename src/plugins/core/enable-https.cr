@@ -15,6 +15,7 @@ module Crycord
           let header = csp[0].replace(/connect-src ([^;]+);/, "connect-src $1 https://*;");
           header = header.replace(/style-src ([^;]+);/, "style-src $1 https://*;");
           header = header.replace(/img-src ([^;]+);/, "img-src $1 https://*;");
+          header = header.replace(/font-src ([^;]+);/, "font-src $1 https://*;");
           responseHeaders["content-security-policy"] = header;
           done({ responseHeaders });
         });
