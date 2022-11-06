@@ -13,7 +13,7 @@ Uses [asar-cr](https://github.com/GeopJr/asar-cr).
 
 ## Installation
 
-You can download the *statically* linked build from the releases page!
+You can download the *statically* linked build from the [releases page](https://github.com/GeopJr/Crycord/releases/latest)!
 
 ## Building
 
